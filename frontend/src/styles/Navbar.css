@@ -1,0 +1,37 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+nav{
+   
+
+    height: 10vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60vw;
+    position: fixed;
+    box-shadow: 4px 5px 10px gray;
+    margin: 0;
+    z-index: 1;
+    /* padding:10px 5px; */
+}
+
+nav h2, .nav-content{
+    padding-top: 2.4vh;
+}
+
+.nav-content{
+    color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.nav-content p:hover{
+    color: black;
+}
