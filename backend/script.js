@@ -1,26 +1,31 @@
-import express from 'express';
-import connectDb from './db/connectDB.js';
-import bodyParser from 'body-parser';
-
-const app=express();
-
-connectDb();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); // For form data
+import e from "express";
+import connect from "./DB/dbConnect.js";
+import 'dotenv/config';
 
 //routes
-import userRoute from './routes/user.js'
-import bookRoute from './routes/book.js'
-app.use('/api/user',userRoute);
-app.use('/api/book',bookRoute);
+import bookRoute from './routes/book.route.js';
+import categoryRoute from './routes/category.route.js';
+import fineRoute from './routes/fine.route.js';
+// import memberRoute from './routes/member.route.js';
+import staffRoute from './routes/staff.route.js';
+import transRoute from './routes/transaction.route.js';
+
+const app = e();
 
 
+const port = process.env.PORT | 3000;
 
-const PORT=3000;
+//routes
+app.use('/api/v1/book',bookRoute);
+app.use('/api/v1/category',categoryRoute);
+app.use('/api/v1/fine',fineRoute);
+// app.use('/api/v1/member',memberRoute);
+app.use('/api/v1/staff',staffRoute);
+app.use('/api/v1/trans',transRoute);
 
+//db connection
+connect();
 
-
-app.listen(PORT,()=>{
-    console.log(`PORT listen on ${PORT}`);
-})
+app.listen(port, () => {
+  console.log(`app listen on port ${port}`);
+});
