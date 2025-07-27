@@ -15,6 +15,10 @@ const app = e();
 
 const port = process.env.PORT | 3000;
 
+//to parse json data
+app.use(e.json());
+app.use(e.urlencoded({ extended: true }));
+
 //routes
 app.use('/api/v1/book',bookRoute);
 app.use('/api/v1/category',categoryRoute);
